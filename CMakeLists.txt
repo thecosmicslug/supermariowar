@@ -178,8 +178,8 @@ if (CMAKE_BUILD_TYPE STREQUAL Debug)
 	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -g -O0")
 else()
 	add_definitions(-DNDEBUG)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
-	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -O3")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Ofast -ffast-math -ffinite-math-only -funsafe-loop-optimizations -fno-math-errno -falign-functions=1 -falign-loops=1 -falign-jumps=1 -fno-unwind-tables -fno-asynchronous-unwind-tables -ftree-loop-if-convert -fno-math-errno -falign-functions=1 -falign-loops=1 -falign-jumps=1 -fno-signed-zeros -fno-trapping-math -funroll-loops -fassociative-math -freciprocal-math")
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -Ofast -ffast-math -ffinite-math-only -funsafe-loop-optimizations -fno-math-errno -falign-functions=1 -falign-loops=1 -falign-jumps=1 -fno-unwind-tables -fno-asynchronous-unwind-tables -ftree-loop-if-convert -fno-math-errno -falign-functions=1 -falign-loops=1 -falign-jumps=1 -fno-signed-zeros -fno-trapping-math frename-registers -funroll-loops -fassociative-math -freciprocal-math")
 
 	# Strip binaries
 	if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
@@ -276,7 +276,7 @@ else()
 	set(SMW_BINDIR  ${CMAKE_INSTALL_PREFIX}/games           CACHE PATH "Installation location of the game binaries")
 	set(SMW_DATADIR ${CMAKE_INSTALL_PREFIX}/share/games/smw CACHE PATH "Installation location of the game data")
 endif()
-# set(SMW_USERDIR ".smw" CACHE STRING "User directory") # User settings directory
+
 add_definitions(-DSMW_DATADIR="${SMW_DATADIR}")
 
 # For installing Linux desktop items
