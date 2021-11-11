@@ -240,7 +240,8 @@ void CGameValues::init()
         inputConfiguration[iPlayer][1].iDevice = iPlayer;
         playerInput.inputControls[iPlayer] = &inputConfiguration[iPlayer][1];
 #else
-        playerInput.inputControls[iPlayer] = &inputConfiguration[iPlayer][0];
+	inputConfiguration[iPlayer][1].iDevice = iPlayer; // Default to gamepad input
+        playerInput.inputControls[iPlayer] = &inputConfiguration[iPlayer][1]; // Default to gamepad input
 #endif
     }
 }
