@@ -1,6 +1,6 @@
 name: Build - Linux
 
-on: [push, workflow_dispatch]
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   linux:
@@ -36,7 +36,7 @@ jobs:
         working-directory: build
         run: |
           sdl-config --version
-          cmake -D USE_SDL2_LIBS:BOOL=OFF ..
+          cmake -D USE_SDL2_LIBS:BOOL=OFF -D USE_PNG_SAVE:BOOL=OFF ..
       - name: Configure
         if: matrix.sdl == 2
         working-directory: build
